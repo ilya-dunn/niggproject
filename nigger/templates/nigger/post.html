@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block breadcrumbs %}
+
+{% if perms.nigger.change_nigger %}
+<p ><a href="{% url 'edit_page' post.pk %}">Редактировать</a></p>
+{% endif %}
+
+<!-- Теги -->
+{% with post.tags.all as tags %}
+{% if tags %}
+<ul class="tags-list">
+    <li>Теги:</li>
+    {% for t in tags %}
+    <li><a href="{{t.get_absolute_url}}">{{t.tag}}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+{% endblock %}
+
+{% block content %}
+<h1>{{post.title}}</h1>
+
+{% if post.photo %}
+<p ><img class="img-article-left" src="{{post.photo.url}}"></p>
+{% endif %}
+
+{{post.content|safe}}
+
+    {% if user == post.author or user.is_superuser or user == comment.author %}
+    <p class="link-read-post"><a href="{{ post.get_edit_page }}">Редактировать пост</a></p>
+    {% endif %}
+
+<h3>Комментарии</h3>
+
+{% if user.is_authenticated %}
+<form method='POST'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button></p>
+</form>
+{% endif %}
+
+{% for comment in post.post_comments.all %}
+    <p>{{ user.photo }} {{ comment.author }}: 
+        {{ comment.comment }}</p>
+        <form action="{% url 'delete_comment' comment.id %}" method="POST">
+            {% csrf_token %}
+        {% if user == post.author or user.is_superuser or user == p.author %}
+        <button type="submit">Удалить</button>
+        {% endif %}
+        </form>
+{% endfor %}
+{% endblock %}
