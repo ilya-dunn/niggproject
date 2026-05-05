@@ -189,4 +189,5 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.onrender.com",
+    "https://niggproject-production.up.railway.app",
 ]
