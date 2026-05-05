@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-b0w^tu&7vbdg67#75qtjgkl#m39a=2$78vlghd=@vsvpd-dgr6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "niggproject-production.up.railway.app",
+    ]
+
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
@@ -45,7 +48,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'nigger.apps.NiggerConfig',
     'users.apps.UsersConfig',
-    'debug_toolbar',
+    # 'debug_toolbar',
     'social_django',
     'captcha',
     'django.contrib.sites',
@@ -62,7 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'sitenigger.urls'
@@ -188,6 +191,6 @@ CKEDITOR_5_CONFIGS = {
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.onrender.com",
     "https://niggproject-production.up.railway.app",
 ]
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
