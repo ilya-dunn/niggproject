@@ -79,12 +79,11 @@ class ShowPost(DataMixin, DetailView):
     #     return get_object_or_404(Nigger.published, slug=self.kwargs[self.slug_url_kwarg])
 
 
-class AddPage(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, CreateView):
+class AddPage(LoginRequiredMixin, DataMixin, CreateView):
     form_class = AddPostForm
     template_name = 'nigger/addpage.html'
     title_page = 'Добавление статьи'
     # login_url = '/admin/'
-    permission_required = 'nigger.add_nigger'  # noqa: F811
     
     def form_valid(self, form):
         w = form.save(commit=False)
