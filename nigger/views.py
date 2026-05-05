@@ -35,6 +35,8 @@ class NiggerHome(DataMixin, ListView):
     def get_queryset(self):
         return Nigger.published.filter(is_published=1).select_related('cat')
     
+def test(request):
+    return HttpResponse("OK")
     
 @login_required
 def about(request):
