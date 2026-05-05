@@ -26,7 +26,6 @@ class AddPostForm(forms.ModelForm):
         fields = ['title', 'content', 'photo', 'is_published', 'cat', 'gun', 'tags']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-input'}),
-            'content': forms.Textarea(attrs={'cols': 60, 'rows': 10}),
         }
         labels = {'slug': 'URL'}
 
