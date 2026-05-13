@@ -1,14 +1,23 @@
 html, body {
-	font-family: 'Arial';
+	/* font-family: 'Arial'; */
 	margin: 0;
 	padding: 0;
 	height: 100%;
 	width: 100%;
-	color: #444;
+	/* color: #E2E8F0; */
+	/* background-color:#0F172A; */
+	background:
+        radial-gradient(circle at top left, #1d4ed8 0%, transparent 30%),
+        radial-gradient(circle at bottom right, #0ea5e9 0%, transparent 25%),
+        #0B1120;
+
+    color: #E2E8F0;
+    font-family: Inter, Arial, sans-serif;
+
 }
 
 a {
-	color: #0059b2;
+	color: #E2E8F0;
 	text-decoration: none;
 }
 a:hover {
@@ -36,17 +45,17 @@ p.link-read-post {
 p.link-read-post a {
 	padding: 10px;
 	min-width: 100px;
-	background: #333671;
+	background: #263449;
 	color: #fff;
 	text-decoration: none;
 }
 
 div.article-panel {
-    background: #eee;
+    background: #0F172A;
     padding: 5px 10px 5px 10px;
     box-sizing: border-box;
     overflow: hidden;
-    color: #555;
+    color: #E2E8F0;
 }
 div.article-panel p.first {
     margin: 0;
@@ -63,7 +72,7 @@ ul.list-articles {
 	padding: 0;
 }
 ul.list-articles li {
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #E2E8F0;
 }
 
 .table-page {
@@ -76,7 +85,7 @@ ul.list-articles li {
 .clear {clear: both;}
 
 .header {
-	background: #3F4137;
+	background:rgba(125,211,252,0.35);
 	height: 60px;
 }
 
@@ -91,7 +100,7 @@ ul.mainmenu {
 	margin: 0;
 	padding: 0;
 	height: 60px;
-	color: #fdc073;
+	color: #E2E8F0;
 	font-size: 20px;
 	overflow: hidden;
 }
@@ -103,11 +112,11 @@ ul.mainmenu li.logo {margin: 0;}
 ul.mainmenu li.last {float: right;}
 
 ul.mainmenu li a {
-	color: #fdc073;
+	color:#E2E8F0;
 	text-decoration: none;
 }
 ul.mainmenu li a:hover {
-	color: #FDA83D;
+	color: #ff0000;
 }
 
 .panelitems {
@@ -138,7 +147,7 @@ ul.langitem li.descr {
 	overflow: hidden;
 }
 ul.langitem li a {
-	color: #fdc073;
+	color: #fd7373;
 	text-decoration: none;
 	font-size: 20px;
 }
@@ -158,12 +167,13 @@ div.button {
 	width: 100%;
 	min-height: 100%;
 	height: 100%;
+	background-color:#0F172A;
 }
 
 .left-chapters {
 	margin: 0;
-	background: #eee;
-	border-right: 1px solid #ccc;
+	background:#0F172A;
+	border-right: 1px solid #0F172A;
 }
 .left-chapters ul {
 	width: 230px;
@@ -171,24 +181,26 @@ div.button {
 	padding: 20px 10px 10px 20px;
 	list-style: none;
 	font-size: 20px;
+	background-color: #0F172A;
 }
 .left-chapters ul li {
 	margin: 30px 0 0 0;
-	color: #999;
+	color:#E2E8F0;
 }
-.left-chapters ul li.selected {color: #0059b2; }
+.left-chapters ul li.selected {color: #38BDF8; }
 .left-chapters ul li a {
-	color: #444;
+	color: #E2E8F0;
 	text-decoration: none;
 }
 .left-chapters ul li a:hover { color: #CC0000; }
-.left-chapters ul li.share {margin: 60px 0 0 0;}
-.left-chapters ul li.share p {margin: 30px 0 30px 0;}
+.left-chapters ul li.share {margin: 60px 0 0 0;color:white}
+.left-chapters ul li.share p {margin: 30px 0 30px 0; color: white}
 .left-chapters ul li.share a {
 	display: inline-block;
 	width: 40px;
 	height: 40px;
 	margin: 0 20px 0 0;
+	color:white;
 }
 .left-chapters ul li.share a.share-yt {
 	width: 100%;
@@ -259,7 +271,7 @@ ul.control li {	float: left; padding: 0 0 0 10px;}
 ul.control li.first:before {content: "\2190"; padding: 0 10px 0 0;}
 ul.control li.last {float: right; padding: 0 40px 0 0;}
 ul.control li.last:after {content: "\2192"; padding: 0 0 0 10px;}
-ul.control li a { color: #0059b2; text-decoration: none; }
+ul.control li a { color: #38BDF8; text-decoration: none; }
 ul.control li a:hover { color: #CC0000; }
 
 ul.content-table {
@@ -280,7 +292,7 @@ ul.content-table li a:hover {color: #F0711C;}
 
 .content-text {
 	margin: 60px 0 0 30px;
-	color: #000;
+	color: #E2E8F0;
 	font-size: 20px;
 	font-family: Yandex Sans Display Light;
 }
@@ -425,7 +437,7 @@ ul.lang-list li a:hover {color: #fdc073;}
 }
 
 .list-pages a {
-   color: #000;
+   color:#E2E8F0;
    font-size: 24px;
    text-decoration: none;
 }
