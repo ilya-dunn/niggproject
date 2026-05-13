@@ -1,10 +1,8 @@
 {%extends 'base.html'%}
+{% load static %}
 
 {%block content%}
 <h1>{{ title }}</h1>
-<form action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Отправить</button></p>
-</form>
+    <p>Сайт представляет собой базу данных пройденных интересных курсов на стэпике и посвящен IT</p>
+    <p><img src="{% static 'userss/simpatichnaya-otkrytka-s-kotenkom-vsem-privet-136355.gif' %}">
 {%endblock%}
