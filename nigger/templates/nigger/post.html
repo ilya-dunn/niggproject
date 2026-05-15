@@ -48,7 +48,7 @@
         {{ comment.comment }}</p>
         <form action="{% url 'delete_comment' comment.id %}" method="POST">
             {% csrf_token %}
-        {% if user == post.author or user.is_superuser or user == p.author %}
+        {% if user == post.author or user.is_superuser or user == comment.author %}
         <button type="submit">Удалить</button>
         {% endif %}
         </form>
