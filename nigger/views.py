@@ -159,7 +159,7 @@ class ShowComments(LoginRequiredMixin, DataMixin, CreateView):
 
 class DeleteComment(LoginRequiredMixin, DataMixin, DeleteView):
     model = Comments
-    permission_required = 'nigger.change_nigger'  # noqa: F811
+    #permission_required = 'nigger.change_nigger'  # noqa: F811
     
     def get_success_url(self):
         return reverse('post', kwargs={'post_slug': self.object.post.slug})
