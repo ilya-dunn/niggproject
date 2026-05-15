@@ -19,7 +19,7 @@ class RussianValidator:
 
 class AddPostForm(forms.ModelForm):
     cat = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label='Категория не выбрана' , label="Категории")
-    gun = forms.ModelChoiceField(queryset=Gun.objects.all(),empty_label='Нет ствола(', required=False, label="Оружие")
+    #gun = forms.ModelChoiceField(queryset=Gun.objects.all(),empty_label='Нет ствола(', required=False, label="Оружие")
 
     class Meta:
         model = Nigger

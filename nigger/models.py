@@ -29,7 +29,7 @@ class Nigger(models.Model):
     is_published = models.BooleanField(choices=tuple(map(lambda x: (bool(x[0]), x[1]), Status.choices)), default=Status.DRAFT, verbose_name="Статус")
     cat = models.ForeignKey('Category', on_delete=models.PROTECT, related_name='posts',verbose_name="Категории")
     tags = models.ManyToManyField('TagPost', blank=True, related_name='tags',verbose_name="Тэги")
-    gun = models.OneToOneField('Gun', on_delete=models.SET_NULL, null=True, blank=True, related_name='nigga',verbose_name="Оружие")
+    #gun = models.OneToOneField('Gun', on_delete=models.SET_NULL, null=True, blank=True, related_name='nigga',verbose_name="Оружие")
     photo = models.ImageField(upload_to="photos/%Y/%m/%d/", default=None, blank=True, null=True, verbose_name="Фото")
     author = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, related_name='posts', null=True, default=None)
     
