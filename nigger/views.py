@@ -88,11 +88,15 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
     
 class UpdatePage(PermissionRequiredMixin, DataMixin, UpdateView):
     model = Nigger
-    fields = ['title', 'content', 'photo', 'is_published', 'cat', 'tags']
+    form_class = AddPostForm
     template_name = 'nigger/addpage.html'
-    success_url = reverse_lazy('home')
     title_page = 'Редактирование статьи' 
     permission_required = 'nigger.change_nigger'  # noqa: F811
+    
+    def form_valid(self, form):
+        w = form.save(commit=False)
+        w.author = self.request.user
+        return super().form_valid(form)
     
 
 class ContactFormView(LoginRequiredMixin, DataMixin, FormView):

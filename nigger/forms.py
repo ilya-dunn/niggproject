@@ -23,9 +23,10 @@ class AddPostForm(forms.ModelForm):
 
     class Meta:
         model = Nigger
-        fields = ['title', 'content', 'photo', 'is_published', 'cat', 'gun', 'tags']
+        fields = ['title', 'content', 'photo', 'is_published', 'cat', 'tags']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-input'}),
+            'tags': forms.CheckboxSelectMultiple(),
         }
         labels = {'slug': 'URL'}
 
@@ -52,24 +53,20 @@ class AddComment(forms.ModelForm):
         model = Comments
         fields = ['comment']
         
-        
-# class AddPostForm(forms.Form):
-#     title = forms.CharField(max_length=255,min_length=5,error_messages={
-#                                 'min_length': 'Слишком короткий заголовок',
-#                                 'required': 'Без заголовка - никак',
-#                             }, label="Заголовок")
-#     # #slug = forms.SlugField(max_length=255, label="URL", validators=[
-#     #     MinLengthValidator(5),
-#     #     MaxLengthValidator(100),
-#     # ])
-#     content = forms.CharField(widget=forms.Textarea(attrs={'cols':50, 'rows':5}), required=False, label="Контент")
-#     is_published = forms.BooleanField(required=False,initial=True , label="Статус")
-#     cat = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label='Категория не выбрана' , label="Категории")
-#     gun = forms.ModelChoiceField(queryset=Gun.objects.all(),empty_label='Нет ствола(', required=False, label="Оружие")
+class UpdatePost(forms.ModelForm):
+    cat = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label='Категория не выбрана' , label="Категории")
+    
+    class Meta:
+        model = Nigger
+        fields = ['title', 'content', 'photo', 'is_published', 'cat', 'tags']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-input'}),
+            'tags': forms.CheckboxSelectMultiple(),
+        }
+        labels = {'slug': 'URL'}
 
-#     def clean_title(self):
-#         title = self.cleaned_data['title']
-#         ALLOWED_CHARS = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщбыъэюя0123456789- "
-#         if not (set(title) <= set(ALLOWED_CHARS)):
-#             raise ValidationError("Должны присутствовать только русские символы, дефис и пробел.")
-
+    def clean_title(self):
+        title = self.cleaned_data['title']
+        if len(title) > 50:
+            raise ValidationError('Длина превышает 50 символов')
+        return title       

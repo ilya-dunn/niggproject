@@ -23,7 +23,6 @@ class Nigger(models.Model):
         MinLengthValidator(5),
         MaxLengthValidator(100),
     ])
-    #content = models.TextField(blank=True,verbose_name="Текст статьи")
     content = CKEditor5Field('Текст статьи', config_name='default') 
     time_create = models.DateTimeField(auto_now_add=True,verbose_name="Время создания")
     time_update = models.DateTimeField(auto_now=True,verbose_name="Время изменения")
