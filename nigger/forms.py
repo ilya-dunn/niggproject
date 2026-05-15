@@ -63,10 +63,4 @@ class UpdatePost(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-input'}),
             'tags': forms.CheckboxSelectMultiple(),
         }
-        labels = {'slug': 'URL'}
-
-    def clean_title(self):
-        title = self.cleaned_data['title']
-        if len(title) > 50:
-            raise ValidationError('Длина превышает 50 символов')
-        return title       
+        labels = {'slug': 'URL'}    
