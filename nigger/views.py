@@ -86,12 +86,11 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
         return super().form_valid(form)
 
     
-class UpdatePage(PermissionRequiredMixin, DataMixin, UpdateView):
+class UpdatePage(LoginRequiredMixin, DataMixin, UpdateView):
     model = Nigger
     form_class = AddPostForm
     template_name = 'nigger/addpage.html'
     title_page = 'Редактирование статьи' 
-    permission_required = 'nigger.change_nigger'  # noqa: F811
     
     def form_valid(self, form):
         w = form.save(commit=False)
@@ -146,7 +145,7 @@ class TagPostList(DataMixin, ListView):
         return self.get_mixin_context(context, title='Тэг - ' + tag.tag)  
 
 
-class ShowComments(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, CreateView):
+class ShowComments(LoginRequiredMixin, DataMixin, CreateView):
     form_class = AddComment
     template_name = 'nigger/post.html'
     
@@ -158,12 +157,10 @@ class ShowComments(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, Creat
         return super().form_valid(form) 
     
 
-class DeleteComment(PermissionRequiredMixin, DataMixin, DeleteView):
+class DeleteComment(LoginRequiredMixin, DataMixin, DeleteView):
     model = Comments
     permission_required = 'nigger.change_nigger'  # noqa: F811
     
     def get_success_url(self):
         return reverse('post', kwargs={'post_slug': self.object.post.slug})
     
-    def get_queryset(self):
-        return Nigger.published.filter()
