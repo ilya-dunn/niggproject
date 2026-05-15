@@ -100,7 +100,7 @@ class UploadFiles(models.Model):
 
 class Comments(models.Model):
     author = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, related_name='comments', null=True, default=None)
-    comment = models.TextField(verbose_name="Комментарий")
+    comment = models.CharField(verbose_name="Комментарий")
     post = models.ForeignKey('Nigger', on_delete=models.CASCADE, related_name='post_comments')
     # time_create = models.DateTimeField(auto_now_add=True,verbose_name="Время создания",blank=True)
     
